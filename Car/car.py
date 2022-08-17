@@ -10,7 +10,12 @@ class Car(Serviceable):
         self.battery = battery
 
     @abstractmethod
-    def needs_service(self):
-        if self.engine.needs_service() or self.battery.needs_service():
+    def battery_needs_service(self):
+        if self.battery.needs_service():
+            return True
+        return False
+
+    def engine_needs_service(self):
+        if self.engine.needs_service():
             return True
         return False
